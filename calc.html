@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <Style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #101820FF;
+      background-image: url(./arrangement-green-leaves-with-copy-space.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .calculator {
+      height: 500px;
+      width: 400px;
+      background-color: rgb(0, 0, 0);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .calculator:hover {
+      transform: scale(1.05);
+    }
+  
+    #click {
+     
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      text-align: center;
+      font-family: monospace;
+      font-weight: 800;
+      font-size: 32px;
+      border-top-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      margin-bottom: 20px;
+      background-color: #303030;
+      color: rgb(198, 195, 195);
+      width: 85%;
+      height: 20%;
+      padding: 30px;
+      overflow: hidden;
+      /* Prevent resizing */
+    }
+  
+    .title {
+      color: rgb(247, 251, 255);
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+  
+    .row1 {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  
+    .row1 button {
+      margin-right: 10px;
+      height: 50px;
+      width: 70px;
+      border-radius: 20px;
+    }
+  
+    button:hover {
+      background-color: #1f1f21;
+      color: white;
+    }
+  
+    .row1 .equ {
+      background-color: #ffae00;
+    }
+  
+    .cle {
+      background-color: rgb(239, 32, 32);
+    }
+    .op{
+background-color: rgb(52, 189, 52);
+    }
+    .bgcolor {
+      height: 600px;
+      width: 700px;
+      background-color: #F2AA4CFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px; 
+    }
+    
+  </Style>
+</head>
+<body>
+  <div class="bgcolor">
+
+ 
+  
+<div class="calculator">
+
+  <div class="title">Calculator</div>
+
+  <div class="display">
+    <textarea id="click"></textarea>
+  </div>
+
+  <div class="row1">
+    <button class="cl" onclick="Click('7')">7</button>
+    <button class="cl" onclick="Click('8')">8</button>
+    <button class="cl" onclick="Click('9')">9</button>
+    <button class="cle" onclick="Clear()">C</button>
+  </div>
+  
+  <div class="row1">
+    <button class="c1" onclick="Click('4')">4</button>
+    <button class="c1" onclick="Click('5')">5</button>
+    <button class="c1" onclick="Click('6')">6</button>
+    <button class="op" onclick="solve('/')">/</button>
+  </div>
+  
+  <div class="row1">
+    <button class="c1" onclick="Click('1')">1</button>
+    <button class="c1" onclick="Click('2')">2</button>
+    <button class="c1" onclick="Click('3')">3</button>
+    <button class="op" onclick="solve('*')">*</button>
+  </div>
+  
+  <div class="row1">
+    <button class="c1" onclick="Click('0')">0</button>
+    <button class="op" onclick="solve('+')">+</button>
+    <button class="op" onclick="solve('-')">-</button>
+    <button class="equ" onclick="equals('-')">=</button>
+  </div>
+ 
+</div>
+</div>
+
+<script>
+  function Click(a) {
+    document.getElementById("click").value += a;
+  }
+
+  function Clear() {
+    document.getElementById("click").value = '';
+  }
+
+  function solve(a) {
+    document.getElementById("click").value += a;
+  }
+
+  function equals() {
+    var expression = document.getElementById("click").value;
+    var result = eval(expression);
+    document.getElementById("click").value = result;
+  }
+</script>
+</body>
+</html>
